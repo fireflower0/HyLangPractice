@@ -1,7 +1,6 @@
 (defn product [a b]
-  (if (= (% (* a b) 2) 0)
+  (if (zero? (% (* a b) 2))
       "Even"
       "Odd"))
 
-(defmain [&rest args]
-  (print (product (read) (read))))
+(print (product (read) (read)))
