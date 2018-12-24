@@ -1,3 +1,4 @@
+(import time)
 (import math)
 
 (defn find-sum-of-digits [n]
@@ -16,4 +17,27 @@
       (setv total (+ total i))))
   total)
 
-(print (some-sums (read) (read) (read)))
+;; (print (some-sums (read) (read) (read)))
+
+(defn run-some-sums [n a b]
+  (setv start (time.perf_counter))
+
+  (setv output (some-sums n a b))
+  (print "出力：" output)
+
+  (setv elapsed-time (- (time.perf_counter) start))
+  (print "実行時間：" (* elapsed-time 1000) "[ms]")
+  output)
+
+(defn some-sums-test []
+  (if (= (run-some-sums 20 2 5) 84)
+      (print "結果：OK")
+      (print "結果：NG"))
+  (if (= (run-some-sums 10 1 2) 13)
+      (print "結果：OK")
+      (print "結果：NG"))
+  (if (= (run-some-sums 100 4 16) 4554)
+      (print "結果：OK")
+      (print "結果：NG")))
+
+(some-sums-test)
